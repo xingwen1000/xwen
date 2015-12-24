@@ -5,12 +5,12 @@ $appKey = "3212333708";//申请应用成功后获取的
 if(!$code){
 	//进入微博的登录授权页
 	echo "<script>
-location.href='https://api.weibo.com/oauth2/authorize?client_id=".$appKey."&response_type=code&redirect_uri=xingwen1000.sinaapp.com/oauth.php';
+location.href='https://api.weibo.com/oauth2/authorize?client_id=".$appKey."&response_type=code&redirect_uri=http://xingwen1000.sinaapp.com/oauth.php';
 </script>";
 }
 //获取token
 function getAccessToken($appKey,$appSecret,$code){
-    $url = "https://api.weibo.com/oauth2/access_token?client_id=$appKey&client_secret=$appSecret&grant_type=authorization_code&redirect_uri=xingwen1000.sinaapp.com/oauth.php&code=$code";
+    $url = "https://api.weibo.com/oauth2/access_token?client_id=$appKey&client_secret=$appSecret&grant_type=authorization_code&redirect_uri=http://xingwen1000.sinaapp.com/oauth.php&code=$code";
 	$res = httpsRequest($url,true);
     return $res->access_token;
     
