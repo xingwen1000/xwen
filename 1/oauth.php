@@ -1,6 +1,7 @@
 <?php
 $code = $_GET['code'];//换取toke的码
-$appKey = "3212333708";//申请应用成功后获取的
+$appKey = '3212333708';//申请应用成功后获取的
+$appSecret = '8e2d7c321b6787329893023c82b38877';
 //判断code是否存在
 if(!$code){
 	//进入微博的登录授权页
@@ -43,6 +44,8 @@ function httpsRequest($url, $data = null)
     return json_decode($output);
 }
 $access_token = getAccessToken($appKey,$appSecret,$code);
+var_dump($access_token);
+exit;
 $uid = getuserid($access_token);
 $name = getusername($uid,$access_token);
 print_r($name);
